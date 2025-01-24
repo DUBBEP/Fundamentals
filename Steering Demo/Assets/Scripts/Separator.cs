@@ -1,31 +1,42 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Separator : Kinematic
 {
-    Separation myMoveType;
-    Align myRotateType;
+    Seek myMoveType;
+    Separation myAvoidType;
+    Face mySeekRotateType;
+    LookWhereGoing myFleeRotateType;
+
+    public bool flee = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        myMoveType = new Separation();
+        myMoveType = new Seek();
         myMoveType.character = this;
-        myMoveType.targets = FindObjectsOfType<Kinematic>();
+        myMoveType.target = myTarget;
+        myMoveType.flee = flee;
 
-        myRotateType = new Align();
-        myRotateType.character = this;
-        myRotateType.target = myMoveType.targets[0].gameObject;
+        mySeekRotateType = new Face();
+        mySeekRotateType.character = this;
+        mySeekRotateType.target = myTarget;
+
+        myFleeRotateType = new LookWhereGoing();
+        myFleeRotateType.character = this;
+        myFleeRotateType.target = myTarget;
+
+        myAvoidType = new Separation();
+        myAvoidType.character = this;
+        myAvoidType.targets = FindObjectsOfType<Kinematic>();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         steeringUpdate = new SteeringOutput();
-        steeringUpdate.linear = myMoveType.getSteering().linear;
-        steeringUpdate.angular = myRotateType.getSteering().angular;
-        
+        steeringUpdate.linear = myAvoidType.getSteering().linear.magnitude != 0 ? myAvoidType.getSteering().linear : myMoveType.getSteering().linear;
+        steeringUpdate.angular = flee ? myFleeRotateType.getSteering().angular : mySeekRotateType.getSteering().angular;
+
         Debug.Log(steeringUpdate.linear);
         
         base.Update();

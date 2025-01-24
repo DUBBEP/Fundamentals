@@ -522,10 +522,9 @@ GameObject:
   - component: {fileID: 867137033}
   - component: {fileID: 867137032}
   - component: {fileID: 867137031}
-  - component: {fileID: 867137030}
   - component: {fileID: 867137029}
   m_Layer: 0
-  m_Name: seeker01 (1)
+  m_Name: Separator01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,26 +544,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linearVelocity: {x: 0, y: 0, z: 0}
   angularVelocity: 0
-  maxSpeed: 10
-  maxAngularVelocity: 500
+  maxSpeed: 1.5
+  maxAngularVelocity: 8000
   myTarget: {fileID: 1035599774}
---- !u!114 &867137030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867137028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 200b89be91d4cc643b81bc3677db7b7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  linearVelocity: {x: 5, y: 0, z: 5}
-  angularVelocity: 0
-  maxSpeed: 1
-  maxAngularVelocity: 5000
-  myTarget: {fileID: 281066794}
   flee: 0
 --- !u!65 &867137031
 BoxCollider:
@@ -646,7 +628,7 @@ Transform:
   m_GameObject: {fileID: 867137028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.49, y: 0, z: -2.95}
+  m_LocalPosition: {x: 23.49, y: 0, z: -0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
