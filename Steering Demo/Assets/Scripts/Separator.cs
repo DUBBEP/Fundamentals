@@ -36,8 +36,6 @@ public class Separator : Kinematic
         steeringUpdate = new SteeringOutput();
         steeringUpdate.linear = myAvoidType.getSteering().linear.magnitude != 0 ? myAvoidType.getSteering().linear : myMoveType.getSteering().linear;
         steeringUpdate.angular = flee ? myFleeRotateType.getSteering().angular : mySeekRotateType.getSteering().angular;
-
-        Debug.Log(steeringUpdate.linear);
         
         base.Update();
     }
