@@ -20,8 +20,6 @@ public class Wander : Seek
         Vector3 targetPosition = character.transform.position + wanderOffSet * character.transform.TransformDirection(Vector3.forward);
         wanderOrientation += Random.insideUnitCircle * wanderRadius * wanderRate;
 
-        Debug.Log("Circle target position: " + targetPosition);
-
         Vector3 target = new Vector3(targetPosition.x + wanderOrientation.x, 0, targetPosition.z + wanderOrientation.y);
 
         return target;
