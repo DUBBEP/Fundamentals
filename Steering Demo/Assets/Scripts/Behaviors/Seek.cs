@@ -42,6 +42,7 @@ public class Seek : SteeringBehavior
         result.linear *= maxAcceleration;
 
         result.angular = 0;
+
         return result;
     }
 }
