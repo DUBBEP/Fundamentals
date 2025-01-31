@@ -18,7 +18,5 @@ public class ObstacleAvoidance : Seek
             Debug.Log(" Clearly nothing is there");
             return base.getTargetPosition();
         }
-
     }
-
 }
