@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Avoiders Scene.unity
     guid: 6ace81074e80e1147a3a811c6dc2ffa7
+  - enabled: 1
+    path: Assets/Scenes/Prod.unity
+    guid: 79d7d9e52acdc5d47a4ff892883b4029
   m_configObjects: {}
