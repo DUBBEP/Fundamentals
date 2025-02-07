@@ -2,7 +2,8 @@ using UnityEngine;
 public class StaticsAvoider : Kinematic
 {
     Face mySeekRotateType;
-    ObstacleAvoidance myMoveType;
+    Seek myMoveType;
+    ObstacleAvoidance avoidType;
 
     public float lookDistance;
     public float avoidDistance;
@@ -16,18 +17,31 @@ public class StaticsAvoider : Kinematic
         mySeekRotateType.character = this;
         mySeekRotateType.target = myTarget;
 
-        myMoveType = new ObstacleAvoidance();
+        myMoveType = new Seek();
         myMoveType.character = this;
         myMoveType.target = myTarget;
-        myMoveType.lookahead = lookDistance;
-        myMoveType.avoidDistance = this.avoidDistance;
+        myMoveType.flee = false;
+
+        avoidType = new ObstacleAvoidance();
+        avoidType.character = this;
+        avoidType.target = myTarget;
+        avoidType.lookahead = lookDistance;
+        avoidType.avoidDistance = this.avoidDistance;
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         steeringUpdate = new SteeringOutput();
-        steeringUpdate.linear = myMoveType.getSteering().linear;
+
+        if (avoidType.getSteering() != null)
+        {
+            steeringUpdate.linear = avoidType.getSteering().linear;
+        }
+        else
+        {
+            steeringUpdate.linear = myMoveType.getSteering().linear;
+        }
         steeringUpdate.angular = mySeekRotateType.getSteering().angular;
         base.Update();
     }

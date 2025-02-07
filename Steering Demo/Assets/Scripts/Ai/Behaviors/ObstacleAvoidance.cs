@@ -15,8 +15,7 @@ public class ObstacleAvoidance : Seek
         }
         else
         {
-            Debug.Log(" Clearly nothing is there");
-            return base.getTargetPosition();
+            return Vector3.zero;
         }
     }
 }
