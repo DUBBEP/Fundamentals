@@ -20,7 +20,7 @@ public class Seek : SteeringBehavior
     {
         SteeringOutput result = new SteeringOutput();
         Vector3 targetPosition = getTargetPosition();
-        if (targetPosition == Vector3.zero)
+        if (targetPosition == Vector3.one * 10000)
         {
             return null;
         }

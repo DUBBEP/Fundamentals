@@ -8,6 +8,8 @@ public class StaticsAvoider : Kinematic
     public float lookDistance;
     public float avoidDistance;
 
+    public bool flee;
+
 
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class StaticsAvoider : Kinematic
         avoidType.target = myTarget;
         avoidType.lookahead = lookDistance;
         avoidType.avoidDistance = this.avoidDistance;
+        avoidType.flee = flee;
     }
 
     // Update is called once per frame

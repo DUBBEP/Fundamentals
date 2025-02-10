@@ -2,20 +2,27 @@ using UnityEngine;
 
 public class ObstacleAvoidance : Seek
 {
-    public float avoidDistance = 30f;
+    public float avoidDistance = 1f;
 
-    public float lookahead = 10f;
+    public float lookahead = 3f;
 
     protected override Vector3 getTargetPosition()
     {
+        Vector3 direction = (target.transform.position - character.transform.position).normalized;
+
+        direction = ((direction + character.linearVelocity) / 2).normalized;
+
+        Debug.DrawRay(character.transform.position, direction);
+
         RaycastHit hit;
-        if (Physics.Raycast(character.transform.position, character.transform.TransformDirection(Vector3.forward), out hit, lookahead))
+        if (Physics.Raycast(character.transform.position, direction, out hit, lookahead) && hit.transform.gameObject.CompareTag("Obstacle"))
         {
-            return hit.point + (hit.normal * avoidDistance);
+            Debug.Log("avoiding obstacle");
+            return hit.point - (hit.normal * avoidDistance);
         }
         else
         {
-            return Vector3.zero;
+            return Vector3.one * 10000;
         }
     }
 }

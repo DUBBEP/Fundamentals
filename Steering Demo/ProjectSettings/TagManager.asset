@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Flocker
+  - Obstacle
   layers:
   - Default
   - TransparentFX

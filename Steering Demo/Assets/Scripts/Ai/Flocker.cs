@@ -15,7 +15,7 @@ public class Flocker : Kinematic
         // Separate from other birds
         Separation separate = new Separation();
         separate.character = this;
-        GameObject[] goBirds = GameObject.FindGameObjectsWithTag("bird");
+        GameObject[] goBirds = GameObject.FindGameObjectsWithTag("Flocker");
         kBirds = new Kinematic[goBirds.Length - 1];
         int j = 0;
         for (int i = 0; i < goBirds.Length - 1; i++)
@@ -41,13 +41,13 @@ public class Flocker : Kinematic
         mySteering.behaviors = new BehaviorAndWeight[3];
         mySteering.behaviors[0] = new BehaviorAndWeight();
         mySteering.behaviors[0].behavior = separate;
-        mySteering.behaviors[0].weight = 1f; //3
+        mySteering.behaviors[0].weight = 3f; //3
         mySteering.behaviors[1] = new BehaviorAndWeight();
         mySteering.behaviors[1].behavior = cohere;
         mySteering.behaviors[1].weight = 1f; //.5
         mySteering.behaviors[2] = new BehaviorAndWeight();
         mySteering.behaviors[2].behavior = myRotateType;
-        mySteering.behaviors[2].weight = 1f;
+        mySteering.behaviors[2].weight = 5f;
 
         // set up prioritysteering
         ObstacleAvoidance myAvoid = new ObstacleAvoidance();
@@ -71,23 +71,23 @@ public class Flocker : Kinematic
     // Update is called once per frame
     protected override void Update()
     {
-        // calculate our cohere target?
-        //Vector3 centerOfMass = Vector3.zero;
-        //Vector3 flockVelocity = Vector3.zero;
-        //foreach (Kinematic bird in kBirds)
-        //{
-        //    centerOfMass += bird.transform.position;
-        //    flockVelocity += bird.linearVelocity;
-        //}
-        //centerOfMass /= kBirds.Length;
-        //flockVelocity /= kBirds.Length;
-        //myCohereTarget.transform.position = centerOfMass;
-        //myCohereTarget.GetComponent<Kinematic>().linearVelocity = flockVelocity;
+        /*
+        Vector3 centerOfMass = Vector3.zero;
+        Vector3 flockVelocity = Vector3.zero;
+        foreach (Kinematic bird in kBirds)
+        {
+            centerOfMass += bird.transform.position;
+            flockVelocity += bird.linearVelocity;
+        }
+        centerOfMass /= kBirds.Length;
+        flockVelocity /= kBirds.Length;
+        myCohereTarget.transform.position = centerOfMass;
+        myCohereTarget.GetComponent<Kinematic>().linearVelocity = flockVelocity;
+        */
 
         steeringUpdate = new SteeringOutput();
         if (!avoidObstacles)
         {
-            Debug.Log(mySteering.getSteering());
             steeringUpdate = mySteering.getSteering();
         }
         else

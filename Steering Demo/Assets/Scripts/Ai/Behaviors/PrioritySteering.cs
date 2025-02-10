@@ -5,7 +5,7 @@ using UnityEngine;
 public class PrioritySteering
 {
     // should be a small number, effectively zero
-    float epsilon = 0.1f;
+    float epsilon = 0.05f;
 
     public BlendedSteering[] groups;
 
