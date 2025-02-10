@@ -41,13 +41,13 @@ public class Flocker : Kinematic
         mySteering.behaviors = new BehaviorAndWeight[3];
         mySteering.behaviors[0] = new BehaviorAndWeight();
         mySteering.behaviors[0].behavior = separate;
-        mySteering.behaviors[0].weight = 3f; //3
+        mySteering.behaviors[0].weight = 6f; //3
         mySteering.behaviors[1] = new BehaviorAndWeight();
         mySteering.behaviors[1].behavior = cohere;
         mySteering.behaviors[1].weight = 1f; //.5
         mySteering.behaviors[2] = new BehaviorAndWeight();
         mySteering.behaviors[2].behavior = myRotateType;
-        mySteering.behaviors[2].weight = 5f;
+        mySteering.behaviors[2].weight = 1f;
 
         // set up prioritysteering
         ObstacleAvoidance myAvoid = new ObstacleAvoidance();

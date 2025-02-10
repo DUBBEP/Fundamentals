@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Flocker
   - Obstacle
+  - Floor
   layers:
   - Default
   - TransparentFX

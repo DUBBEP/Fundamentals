@@ -17,4 +17,12 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+    public void OnFlockDemoScene()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void OnMazeScene()
+    {
+        SceneManager.LoadScene(5);
+    }
 }

@@ -10,7 +10,8 @@ public class ObstacleAvoidance : Seek
     {
         Vector3 direction = (target.transform.position - character.transform.position).normalized;
 
-        direction = ((direction + character.linearVelocity) / 2).normalized;
+        direction = new Vector3(direction.x, 0, direction.z);
+
 
         Debug.DrawRay(character.transform.position, direction);
 

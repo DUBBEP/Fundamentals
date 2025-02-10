@@ -43,6 +43,8 @@ public class Seek : SteeringBehavior
 
         result.angular = 0;
 
+        result.linear = new Vector3(result.linear.x, 0, result.linear.z);
+
         return result;
     }
 }
